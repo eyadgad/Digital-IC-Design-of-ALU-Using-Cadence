@@ -1,49 +1,74 @@
-# Digital IC Design of 4-bit ALU Using Cadence
+# Digital IC Design of a 4-bit ALU Using Cadence
 
-This project involves designing and simulating a **4-bit Arithmetic Logic Unit (ALU)** using **Cadence Virtuoso**. The ALU is a fundamental component in digital systems, capable of performing arithmetic and logical operations. The design includes modular circuit components, such as multiplexers, gates, and combinational logic, integrated to perform 4-bit arithmetic and logical operations.
+This project demonstrates the design and implementation of a **4-bit Arithmetic Logic Unit (ALU)** using CMOS technology in **Cadence**. The design incorporates basic logic gates and different types of adders, including **Ripple Carry Adder**, **Carry Select Adder**, and **Carry Lookahead Adder**.
+
+## Features
+
+1. **Logic Gates Implementation**:
+   - Basic CMOS logic gates: AND, OR, NOT, NAND, NOR, XOR.
+   - Multi-input gates and multiplexers: 2-to-1 MUX, 8-to-4 MUX, 16-to-4 MUX.
+
+2. **Adder Design**:
+   - Ripple Carry Adder: Simple and modular but slower due to carry propagation delay.
+   - Carry Select Adder: Optimized for faster carry computation.
+   - Carry Lookahead Adder: High-speed adder with minimal carry propagation delay.
+
+3. **4-bit ALU Design**:
+   - Performs arithmetic and logical operations based on the control signals.
+   - Includes addition, subtraction, bitwise AND, OR, XOR, and NOT operations.
+
+4. **CMOS Implementation**:
+   - CMOS transistor-level design for low power and high efficiency.
 
 ---
 
-## Project Structure
-
-The project folder contains the following directories and files:
+## Project Directory Structure
 
 ```plaintext
 .
-├── .oalib           # Cadence design library information
-├── 16to4MUX         # Design and schematic for 16-to-4 multiplexer
-├── 2to1MUX          # Design and schematic for 2-to-1 multiplexer
-├── 4to1AND          # Design and schematic for 4-input AND gate
-├── 8to4MUX          # Design and schematic for 8-to-4 multiplexer
-├── AND              # AND gate circuit design and verification
-├── cdsinfo.tag      # Cadence metadata for library
-├── data.dm          # Design and simulation data
-├── NAND             # NAND gate circuit design and verification
-├── NOR              # NOR gate circuit design and verification
-├── NOT              # NOT gate circuit design and verification
-├── OR               # OR gate circuit design and verification
-└── XOR              # XOR gate circuit design and verification
+├── .oalib/               # Simulation library and settings for Cadence
+├── 16to4MUX/             # 16-to-4 Multiplexer design
+├── 8to4MUX/              # 8-to-4 Multiplexer design
+├── 2to1MUX/              # 2-to-1 Multiplexer design
+├── AND/                  # CMOS AND gate design
+├── NAND/                 # CMOS NAND gate design
+├── NOR/                  # CMOS NOR gate design
+├── NOT/                  # CMOS NOT gate design
+├── OR/                   # CMOS OR gate design
+├── XOR/                  # CMOS XOR gate design
+├── 4to1AND/              # 4-to-1 AND gate design
+├── data.dm/              # Cadence design and simulation data
+├── cdsinfo.tag/          # Cadence project configuration file
 ```
 
 ---
 
-## Features of the Design
+## Design Highlights
 
-1. **Arithmetic and Logical Operations**:
-   - **Arithmetic**: Addition, Subtraction.
-   - **Logical**: AND, OR, XOR, NAND, NOR.
-   - Support for 4-bit wide operations.
+### 1. **Logic Gates**
+   - All basic gates (AND, OR, NOT, NAND, NOR, XOR) were implemented at the transistor level using CMOS technology.
+   - Each gate has been verified for functionality and optimized for delay and power consumption.
 
-2. **Modular Design**:
-   - Implemented using hierarchical design methodology.
-   - Reusable components like multiplexers and gates.
+### 2. **Multiplexers**
+   - Designed multiplexers with various input configurations (2-to-1, 8-to-4, and 16-to-4).
+   - Multiplexers form the backbone of the ALU for operation selection.
 
-3. **Scalable and Optimized**:
-   - Efficient logic implementation for speed and minimal power consumption.
+### 3. **Adder Types**
+   - **Ripple Carry Adder**:
+     - Modular design with full adders cascaded.
+     - Higher delay due to carry propagation through all stages.
+   - **Carry Select Adder**:
+     - Divides the addition process into smaller blocks with precomputed carry values.
+     - Reduces delay compared to the ripple carry design.
+   - **Carry Lookahead Adder**:
+     - Computes carry signals in parallel using the "generate" and "propagate" method.
+     - Provides the fastest performance among the three.
 
-4. **Verification and Simulation**:
-   - Thorough testing using Cadence ADE-L for functional correctness.
-   - Layout verification for DRC and LVS compliance.
+### 4. **4-bit ALU**
+   - Combines the above components (logic gates, multiplexers, and adders) to perform operations such as:
+     - Arithmetic: Addition, Subtraction.
+     - Logic: AND, OR, XOR, NOT.
+   - Controlled via a 4-bit operation select signal.
 
 ---
 
@@ -90,21 +115,6 @@ The project folder contains the following directories and files:
 
 ---
 
-## Design Components
-
-| **Component**  | **Description**                               |
-|-----------------|-----------------------------------------------|
-| `AND`          | 2-input AND gate.                            |
-| `OR`           | 2-input OR gate.                             |
-| `NOT`          | Single-input NOT gate.                       |
-| `XOR`          | 2-input XOR gate.                            |
-| `NAND`         | 2-input NAND gate.                           |
-| `NOR`          | 2-input NOR gate.                            |
-| `2to1MUX`      | Multiplexer with 2 inputs and 1 output.       |
-| `4to1AND`      | Combines 4-input AND functionality.           |
-| `8to4MUX`      | Multiplexer with 8 inputs and 4 outputs.      |
-| `16to4MUX`     | Multiplexer with 16 inputs and 4 outputs.     |
----
 
 **Author**: Eyad Gad  
 **Contact**: [egad@uwo.ca](mailto:egad@uwo.ca)
