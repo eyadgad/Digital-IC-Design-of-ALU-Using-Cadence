@@ -4,7 +4,7 @@ This project demonstrates the design and implementation of a **4-bit Arithmetic 
 
 ## Features
 
-1. **Logic Gates Implementation**:
+1. **Logic Gates Implementation**: 
    - Basic CMOS logic gates: AND, OR, NOT, NAND, NOR, XOR.
    - Multi-input gates and multiplexers: 2-to-1 MUX, 8-to-4 MUX, 16-to-4 MUX.
 
